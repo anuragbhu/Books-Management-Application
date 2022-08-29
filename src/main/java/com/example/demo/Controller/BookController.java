@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Book;
 import com.example.demo.Service.BookService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ public class BookController {
     @Autowired
     BookService bookService;
 
+    @ApiOperation("This end point is for inserting the book")
     @PostMapping("/insertBook")
     public String insertBook(@RequestBody Book book) {
         return bookService.insertBook(book);
