@@ -32,4 +32,12 @@ public class BookService {
     public String deleteBook(long id) {
         return booksDB.deleteBookDetails(id);
     }
+
+    public int getPrice(long id) {
+        return booksDB.getPrice(id);
+    }
+
+    public int getPrice(long id, String name) {
+        return booksDB.getPrice(id, name);
+    }
 }

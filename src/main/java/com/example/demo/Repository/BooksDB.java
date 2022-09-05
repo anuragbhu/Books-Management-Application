@@ -52,4 +52,22 @@ public class BooksDB {
         }
         return "Book Id does not exist";
     }
+
+    public int getPrice(long id) {
+        for(Book books : booksList) {
+            if(books.getId() == id) {
+                return books.getCost();
+            }
+        }
+        return -1;
+    }
+
+    public int getPrice(long id, String name) {
+        for(Book books : booksList) {
+            if(books.getId() == id && books.getAuthorName().equals(name)) {
+                return books.getCost();
+            }
+        }
+        return -1;
+    }
 }

@@ -39,4 +39,19 @@ public class BookController {
     public String deleteBook(@PathVariable long id) {
         return bookService.deleteBook(id);
     }
+
+    // localhost:8081/getPrice?id=1001
+    @GetMapping("/getPrice")
+    public int getPrice(@RequestParam long id) {
+        return bookService.getPrice(id);
+    }
+
+    // Both are corrects:
+    // localhost:8081/getPriceV2?id=1001&name=Anurag+Pandey
+    // localhost:8081/getPriceV2?id=1001&name=Anurag Pandey
+    @GetMapping("/getPriceV2")
+    public int getPriceV2(@RequestParam long id, String name) {
+        System.out.println("ID: " + id + " AuthorName: " + name);
+        return bookService.getPrice(id, name);
+    }
 }
